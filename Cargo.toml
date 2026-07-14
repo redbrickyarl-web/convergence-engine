@@ -1,0 +1,36 @@
+[package]
+name = "convergence-engine"
+version = "1.0.0"
+edition = "2021"
+authors = ["Dalton Rosenberg"]
+description = "Dalton Rosenberg's Sovereign Convergence Engine - The blueprint to change the world of AI through human intent + AI cognition + gated execution"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/redbrickyarl-web/convergence-engine"
+readme = "README.md"
+
+[lib]
+name = "convergence"
+path = "src/lib.rs"
+
+[[bin]]
+name = "convergence-engine"
+path = "src/main.rs"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+
+[dependencies]
+tokio = { version = "1.40", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+serde_yaml = "0.9"
+reqwest = { version = "0.12", features = ["json"] }
+uuid = { version = "1.0", features = ["v4", "serde"] }
+thiserror = "1.0"
+log = "0.4"
+env_logger = "0.11"
+
+[dev-dependencies]
+criterion = { version = "0.5", features = ["html_reports"] }
